@@ -129,7 +129,7 @@ int main() {
     double a, b;
     cin >> n;
     vector<pair<double, double> > grid;
-    while(n-->0) {
+    while(n-- >0) {
         cin >> a >> b;
         grid.push_back({a, b});
     }
