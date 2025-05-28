@@ -3,7 +3,7 @@
 The Christofides algorithm gurantees a path of at most 1.5 times the optimal TSP tour
 
 ## Usage
-'''bash
+'''python
 g++ -std=c++11 main.cpp
 ./a.out
 '''
