@@ -1,25 +1,16 @@
-#Running the Program#
-To run the program, either a) open the project in an IDE and run or b) run the following commands in the terminal:
-$g++ -std=c++11 main.cpp
-    $./a.out
+# Christofides TSP Approximation
 
-Program input is formatted as follows:
-    The first line contains an integer N, the number of vertices of the graph
-    N lines with 2 space-separated doubles representing the coordinates of each vertex
+The Christofides algorithm gurantees a path of at most 1.5 times the optimal TSP tour
 
-Sample input:
+## Usage
+'''bash
+g++ -std=c++11 main.cpp
+./a.out
+'''
 
-10
-100.45 23.53
-89.03 45.94
-38.90 9.43
-78.46 98.12
-43.00 46.90
-154.90 34.69
-21.96 89.45
-68.25 89.46
-65.78 98.23
-76.45 89.24
+## Input Format
+Enter one integer N denoting the number of vertices in the graph
+On the next N lines, enter two doubles representing the geographic coordinates of each vertex
 
-Output Format:
-    The program outputs an approximated order of vertices visited and the total length "traveled" to visit each vertex
+## Output
+The program will output the order of vertices visited and the total length of the path.
