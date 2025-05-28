@@ -3,10 +3,8 @@
 The Christofides algorithm gurantees a path of at most 1.5 times the optimal TSP tour
 
 ## Usage
-'''python
 g++ -std=c++11 main.cpp
 ./a.out
-'''
 
 ## Input Format
 Enter one integer N denoting the number of vertices in the graph
