@@ -1,6 +1,7 @@
+#Running the Program#
 To run the program, either a) open the project in an IDE and run or b) run the following commands in the terminal:
-'''    $g++ -std=c++11 main.cpp
-    $./a.out'''
+$g++ -std=c++11 main.cpp
+    $./a.out
 
 Program input is formatted as follows:
     The first line contains an integer N, the number of vertices of the graph
