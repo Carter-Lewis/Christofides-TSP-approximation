@@ -10,6 +10,7 @@
 #include <iostream>
 #include <queue>
 #include <set>
+#include "SDL_Plotter.h"
 
 using namespace std;
 
@@ -125,14 +126,33 @@ double christofides(node* head, vector<pair<double, double> > grid,
 }
 
 int main() {
-    int n;
-    double a, b;
-    cin >> n;
+    SDL_Plotter g(1000, 1000);
+    int n = 0;
     vector<pair<double, double> > grid;
-    while(n-- >0) {
-        cin >> a >> b;
-        grid.push_back({a, b});
+    g.setQuit(false);
+    g.update();
+    while(!g.getQuit()) {
+        if(g.kbhit()) {
+            char key = g.getKey();
+            if(key == 'q') {
+                g.setQuit(true);
+            }
+        }
+        if(g.mouseClick()) {
+            point p = g.getMouseClick();
+            g.plotFilledCircle(10, p, {0, 0, 0});
+            grid.push_back({p.x, p.y});
+            n++;
+        }
+        g.update();
     }
+//    double a, b;
+//    cin >> n;
+//
+//    while(n-- >0) {
+//        cin >> a >> b;
+//        grid.push_back({a, b});
+//    }
 
     node* head;
     head = prim(grid);
@@ -144,5 +164,24 @@ int main() {
         cout << i << " ";
     }
     printf("\nTotal tour length: %.2f\n", ans);
+
+
+    g.setQuit(false);
+    point p1, p2;
+    for(int i = 0; i < order.size() - 1; i++) {
+        p1 = {static_cast<int>(grid[order[i]].first), static_cast<int>(grid[order[i]].second)};
+        p2 = {static_cast<int>(grid[order[i+1]].first), static_cast<int>(grid[order[i+1]].second)};
+        g.plotLine(p1, p2, {0, 255, 0});
+        g.update();
+    }
+    g.update();
+    while(!g.getQuit()) {
+        if(g.kbhit()) {
+            char key = g.getKey();
+            if(key == 'q') {
+                g.setQuit(true);
+            }
+        }
+    }
     return 0;
 }
